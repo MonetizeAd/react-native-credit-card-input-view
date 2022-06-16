@@ -35,10 +35,11 @@ const sHorizontal = StyleSheet.create({
     marginBottom: 20,
   },
   inputLabel: {
-    fontWeight: 'bold',
+    fontWeight: 'normal',
   },
   input: {
-    height: 40,
+    height: 50,
+    marginTop: -7,
   },
 });
 const sVertical = StyleSheet.create({

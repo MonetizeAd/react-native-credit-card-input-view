@@ -1,6 +1,6 @@
 {
   "name": "@monetizead/react-native-credit-card",
-  "version": "0.0.7",
+  "version": "0.0.7-1",
   "description": "Easy (and good looking) credit-card input and credit-card View with swipe gestures , click and long press for your React Native Project",
   "main": "index.js",
   "scripts": {
