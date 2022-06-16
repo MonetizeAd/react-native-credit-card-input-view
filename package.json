@@ -1,5 +1,5 @@
 {
-  "name": "react-native-credit-card-input-view",
+  "name": "@monetizead/react-native-credit-card",
   "version": "0.0.7",
   "description": "Easy (and good looking) credit-card input and credit-card View with swipe gestures , click and long press for your React Native Project",
   "main": "index.js",
@@ -9,7 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arunahuja94/react-native-credit-card-input-view.git"
+    "url": "git+https://github.com/MonetizeAd/react-native-credit-card-input-view.git"
+  },
+  "publishConfig": {
+    "registry": "https://monetizead.jfrog.io/artifactory/api/npm/monetizead-npm-registry/"
   },
   "keywords": [
     "react-native",
@@ -33,9 +36,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arunahuja94/react-native-credit-card-input-view/issues"
+    "url": "https://github.com/MonetizeAd/react-native-credit-card-input-view/issues"
   },
-  "homepage": "https://github.com/arunahuja94/react-native-credit-card-input-view#readme",
+  "homepage": "https://github.com/MonetizeAd/react-native-credit-card-input-view#readme",
   "dependencies": {
     "prop-types": "^15.7.2",
     "lodash.pick": "^4.4.0",

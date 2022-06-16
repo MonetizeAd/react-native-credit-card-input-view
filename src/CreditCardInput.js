@@ -46,12 +46,11 @@ const sVertical = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
-    marginTop: -70,
   },
   form: {
     marginTop: 20,
     marginBottom: 40,
-    width: '85%',
+    width: '100%',
     marginHorizontal: 40,
     height: '100%',
   },
