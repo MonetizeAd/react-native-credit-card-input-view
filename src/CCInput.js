@@ -16,7 +16,7 @@ const s = StyleSheet.create({
 });
 
 export default class CCInput extends Component {
-  static propTypes = {
+  /* static propTypes = {
     field: PropTypes.string.isRequired,
     label: PropTypes.string,
     value: PropTypes.string,
@@ -37,7 +37,7 @@ export default class CCInput extends Component {
     onBecomeEmpty: PropTypes.func,
     onBecomeValid: PropTypes.func,
     additionalInputProps: PropTypes.shape(TextInput.propTypes),
-  };
+  }; */
 
   static defaultProps = {
     label: "",
@@ -51,31 +51,49 @@ export default class CCInput extends Component {
     onBecomeEmpty: () => { },
     onBecomeValid: () => { },
     additionalInputProps: {},
+
+    focusedFieldCard: null
   };
 
   componentDidUpdate(prevProps) {
-    const { status, value, onBecomeEmpty, onBecomeValid, field } = prevProps;
-    const { status: newStatus, value: newValue } = this.props;
+    const { status, value, onBecomeEmpty, onBecomeValid, field, focused } = prevProps;
+    const { status: newStatus, value: newValue, focused: focusedNew } = this.props;
 
     if (value !== "" && newValue === "") onBecomeEmpty(field);
     if (status !== "valid" && newStatus === "valid") onBecomeValid(field);
 
+    if (focused !== focusedNew && focusedNew === field) this.focus()
+
   }
+
+  // name
+  // number
+  // expiry
+  // cvc
+  // postalCode
 
   focus = () => this.refs.input.focus();
 
   _onFocus = () => this.props.onFocus(this.props.field);
   _onChange = value => this.props.onChange(this.props.field, value);
 
+
+
   render() {
     const { label, value, placeholder, status, keyboardType,
       containerStyle, inputStyle, labelStyle,
-      validColor, invalidColor, placeholderColor,
+      validColor, invalidColor, placeholderColor, neutralBorderColor = '#FFFFFF00', validBorderColor, invalidBorderColor,
       additionalInputProps } = this.props;
+
+    // console.log('focused ', this.props.focused)
     return (
       <TouchableOpacity onPress={this.focus}
         activeOpacity={0.99}>
-        <View style={[containerStyle]}>
+        <View style={[containerStyle,
+          ((validBorderColor && status === "valid") ? { borderColor: validBorderColor } :
+            (invalidBorderColor && status === "invalid") ? { borderColor: invalidBorderColor } :
+              { borderColor: neutralBorderColor })
+        ]}>
           {!!label && <Text style={[labelStyle]}>{label}</Text>}
           <TextInput ref="input"
             {...additionalInputProps}
